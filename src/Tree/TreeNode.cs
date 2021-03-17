@@ -16,7 +16,7 @@ namespace BasicCoding
         }
     }
 
-    public static class TreeUtility
+    public static partial class TreeUtility
     {
         public static void InsertLeft(int value, TreeNode node)
         {
