@@ -9,34 +9,41 @@ namespace BasicCoding
     {
         public static IList<List<T>> Permutate<T>(IList<T> inputs)
         {
+            var length = inputs.Count;
             var ret = new List<List<T>>();
-            var path = new List<T>();
-            var used = new List<bool>();
-            Permutate(inputs, path, ret, used);
+            var path = new Stack<T>();
+            var used = new bool[length];
+            Permutate(inputs, path, ret, used, length, 0);
             return ret;
         }
 
-        public static void Permutate<T>(IList<T> inputs, List<T> path, IList<List<T>> result, IList<bool> used)
+        public static void Permutate<T>(IList<T> inputs, Stack<T> path, IList<List<T>> result, IList<bool> used, int length, int depth)
         {
-            if (path.Count == inputs.Count)
+            if (depth == length)
             {
                 result.Add(new List<T>(path));
                 return;
             }
-
-            for (int i = 0; i < inputs.Count; i++)
+            var set = new HashSet<T>();
+            for (int i = 0; i < length; i++)
             {
                 if (used[i])
                 {
                     continue;
                 }
-                
-                path.Add(inputs[i]);
+
+                if (set.Contains(inputs[i]))
+                {
+                    continue;
+                }
+
+                set.Add(inputs[i]);
+                path.Push(inputs[i]);
                 used[i] = true;
 
-                Permutate(inputs, path, result, used);
-                
-                path.RemoveAt(path.Count - 1);
+                Permutate(inputs, path, result, used, length, depth + 1);
+
+                path.Pop();
                 used[i] = false;
             }
         }

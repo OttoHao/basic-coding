@@ -18,6 +18,26 @@ namespace BasicCoding
 
     public static partial class TreeUtility
     {
+
+        public static TreeNode GenerateTree(int[] nums, int index, int length)
+        {
+            var leftIndex = 2 * index + 1;
+            TreeNode left = null;
+            if (leftIndex < length)
+            {
+                left = GenerateTree(nums, leftIndex, length);
+            }
+
+            var rightIndex = 2 * index + 2;
+            TreeNode right = null;
+            if (rightIndex < length)
+            {
+                right = GenerateTree(nums, rightIndex, length);
+            }
+            var node = new TreeNode(nums[index], left, right);
+            return node;
+        }
+        
         public static void InsertLeft(int value, TreeNode node)
         {
             var newNode = new TreeNode(value);
