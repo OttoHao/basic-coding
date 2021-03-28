@@ -20,21 +20,16 @@ namespace BasicCoding
                 return right;
             }
 
-            if (node.Parent != null)
+            var current = node;
+            var parent = node.Parent;
+
+            while (parent != null && ReferenceEquals(current, parent.Right))
             {
-                var current = node;
-                var parent = node.Parent;
-
-                while (parent!= null && ReferenceEquals(current, parent.Right))
-                {
-                    current = parent;
-                    parent = parent.Parent;
-                }
-
-                return parent;
+                current = parent;
+                parent = parent.Parent;
             }
 
-            return null;
+            return parent;
 
         }
     }

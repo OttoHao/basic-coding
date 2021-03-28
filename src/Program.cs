@@ -28,15 +28,46 @@ namespace BasicCoding
             c.Left = f;
             c.Right = g;
 
-            var sol = new MostCommonAncestorSolution();
+            
+            var sol = new MostCommonAncestorIIISolution();
 
-            var ret = sol.FindMostComonAncestor(null, null, null);
-            if(ret==null){
-                System.Console.WriteLine("can not find common ancestor");
+                       
+            var path = sol.GetPath(a, g);
+
+            foreach (var item in path)
+            {
+                System.Console.WriteLine(item.Value);
             }
-            System.Console.WriteLine($"{ret?.Value}");
-
         }
+
+
+        /*
+                        a(1)
+                b(2)               c(3)
+            d(4)       e(5)       f(6)       g(7)
+        */
+        private static GeneralTreeNode GenerateGeneralTree()
+        {
+            var a = new GeneralTreeNode(1);
+            var b = new GeneralTreeNode(2);
+            var c = new GeneralTreeNode(3);
+            var d = new GeneralTreeNode(4);
+            var e = new GeneralTreeNode(5);
+            var f = new GeneralTreeNode(6);
+            var g = new GeneralTreeNode(7);
+
+            a.Children = new List<GeneralTreeNode>() { b, c };
+            b.Children = new List<GeneralTreeNode>() { d, e };
+            c.Children = new List<GeneralTreeNode>() { f, g };
+
+            return a;
+        }
+
+
+        
     }
+
+
+
 }
 
