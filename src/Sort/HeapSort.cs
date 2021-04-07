@@ -10,9 +10,8 @@ namespace BasicCoding
             BuildMaxHeap(nums, length);
             for (int i = length - 1; i >= 0; i--)
             {
-                Swap(nums, i, 0);
-                length--;
-                Heapify(nums, 0, length);
+                Swap(nums, 0, i);
+                Heapify(nums, 0, i);
             }
         }
 

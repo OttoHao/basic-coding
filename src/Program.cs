@@ -14,19 +14,9 @@ namespace BasicCoding
     {
         static void Main(string[] args)
         {
-            var a = new TreeNode(2);
-            var b = new TreeNode(1);
-            var c = new TreeNode(3);
-            a.Left = b;
-            a.Right = c;
-
-            var sol = new ConvertBST2LinkListSolution();
-            var ret = sol.Convert(a);
-
-            while(ret != null){
-                System.Console.WriteLine(ret?.Value);
-                ret = ret.Next;
-            }
+            var sol = new ConvertToExcelColumnTitleSolution();
+            var ret = sol.ConvertToTitle(701);
+            System.Console.WriteLine(ret);
         }
 
 
