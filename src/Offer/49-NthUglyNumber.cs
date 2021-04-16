@@ -1,3 +1,5 @@
+using System;
+
 namespace BasicCoding
 {
     public class NthUglyNumberSolution
@@ -21,24 +23,14 @@ namespace BasicCoding
                 retForTwo = dp[indexForTwo] * 2;
                 retForThree = dp[indexForThree] * 3;
                 retForFive = dp[indexForFive] * 5;
-                if (retForTwo <= retForThree && retForTwo <= retForFive)
-                {
-                    indexForTwo++;
-                    ret = retForTwo;
-                }
-                if (retForThree <= retForTwo && retForThree <= retForFive)
-                {
-                    indexForThree++;
-                    ret = retForThree;
-                }
-                if (retForFive <= retForTwo && retForFive <= retForThree)
-                {
-                    indexForFive++;
-                    ret = retForFive;
-                }
+                ret = Math.Min(Math.Min(retForTwo, retForThree), retForFive);
 
                 dp[i] = ret;
                 i++;
+
+                if (ret == retForTwo) indexForTwo++;
+                if (ret == retForThree) indexForThree++;
+                if (ret == retForFive) indexForFive++;
             }
 
             return dp[n - 1];

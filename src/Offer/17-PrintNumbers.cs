@@ -33,7 +33,7 @@ namespace BasicCoding
         {
             var ret = new string(path);
 
-            ret.Trim('0');
+            ret.TrimStart('0');
 
             return ret;
         }

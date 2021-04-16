@@ -14,9 +14,8 @@ namespace BasicCoding
     {
         static void Main(string[] args)
         {
-            var sol = new ConvertToExcelColumnTitleSolution();
-            var ret = sol.ConvertToTitle(701);
-            System.Console.WriteLine(ret);
+            var sol = new DicesProbabilitySolution();
+            var ret = sol.DicesProbability(3);
         }
 
 
