@@ -6,27 +6,24 @@ namespace BasicCoding
     // todo a good question
     public class LevelOrderTreeSolution
     {
-        private Queue<TreeNode> _queue = new Queue<TreeNode>();
-        private IList<int> _ret = new List<int>();
         public int[] LevelOrder(TreeNode root)
         {
-            LevelOrderTree(root);
+            var queue = new Queue<TreeNode>();
+            var ret = new List<int>();
+            
+            queue.Enqueue(root);
 
-            while (_queue.TryDequeue(out var item))
+            while (queue.TryDequeue(out var item))
             {
-                LevelOrderTree(item);
+                if (item != null)
+                {
+                    ret.Add(item.val);
+                    queue.Enqueue(item.left);
+                    queue.Enqueue(item.right);
+                }
             }
 
-            return _ret.ToArray();
-        }
-
-        public void LevelOrderTree(TreeNode root)
-        {
-            if (root == null) return;
-
-            _ret.Add(root.val);
-            _queue.Enqueue(root.left);
-            _queue.Enqueue(root.right);
+            return ret.ToArray();
         }
 
         public class TreeNode

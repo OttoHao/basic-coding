@@ -2,20 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Hot100;
 
 namespace BasicCoding
 {
-    /*
-                a(1)
-        b(2)               c(3)
-    d(4)       e(5)       f(6)       g(7)
-    */
+
     class Program
     {
         static void Main(string[] args)
         {
-            var sol = new DicesProbabilitySolution();
-            var ret = sol.DicesProbability(3);
+            var list = new SortedList<int, int>();
+
+            list.Add(1, 1);
+            list.Add(0, 0);
+            list.Add(2, 2);
+            list.RemoveAt(0);
+            System.Console.WriteLine(list.First());
         }
 
 
