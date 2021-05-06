@@ -11,13 +11,10 @@ namespace BasicCoding
     {
         static void Main(string[] args)
         {
-            var list = new SortedList<int, int>();
-
-            list.Add(1, 1);
-            list.Add(0, 0);
-            list.Add(2, 2);
-            list.RemoveAt(0);
-            System.Console.WriteLine(list.First());
+            var a = "ccacccbcab";
+            var b = new List<string>() { "cc", "bb", "aa", "bc", "ac", "ca", "ba", "cb" };
+            var sol = new WordBreakSolution();
+            sol.WordBreak(a, b);
         }
 
 
