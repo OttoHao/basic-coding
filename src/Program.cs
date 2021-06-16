@@ -11,10 +11,9 @@ namespace BasicCoding
     {
         static void Main(string[] args)
         {
-            var a = "ccacccbcab";
-            var b = new List<string>() { "cc", "bb", "aa", "bc", "ac", "ca", "ba", "cb" };
-            var sol = new WordBreakSolution();
-            sol.WordBreak(a, b);
+            var sol = new LengthOfLISSolution();
+            var a = new int[] {4,10,4,3,8,9};
+            sol.LengthOfLIS(a);
         }
 
 
