@@ -11,9 +11,6 @@ namespace BasicCoding
     {
         static void Main(string[] args)
         {
-            var sol = new LengthOfLISSolution();
-            var a = new int[] {4,10,4,3,8,9};
-            sol.LengthOfLIS(a);
         }
 
 
