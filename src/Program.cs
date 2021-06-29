@@ -11,7 +11,8 @@ namespace BasicCoding
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine(145&1);
+            var sol = new FindAnagramsSolution();
+            var ret = sol.FindAnagrams("cbaebabacd","abc");
         }
 
 
